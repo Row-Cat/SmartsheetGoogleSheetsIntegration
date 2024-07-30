@@ -9,6 +9,8 @@ function importAllSmartsheetData() {
     { id: '141127332089732',  tabName: 'Disk Swaps - ARCHIVE' },
     { id: '3002886222309252', tabName: 'QNAP Swaps' },
     { id: '3670830105972612', tabName: 'QNAP Swaps - ARCHIVE' }
+	{ id: '6307488485140356', tabName: 'Logistics Smartsheet' }
+	{ id: '5111055235633028', tabName: 'Logistics Smartsheet - ARCHIVE' }
   ];
   
   const spreadsheetId = '1JE1U59-z7Kks54G5kI4YH2pT_9v7aXDURPOzf4OHCiQ';
