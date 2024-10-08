@@ -3,13 +3,13 @@ function getSmartsheetData(sheetId) {
   const apiToken = 'pvVprnMq89ruFLq3Sph2lvdBxifDbtm2o37bD';
   
   // Smartsheet API base URL
-  const smartsheetApiUrl = `https://api.smartsheet.com/2.0/sheets/${sheetId}`;
+  const smartsheetApiUrl = https://api.smartsheet.com/2.0/sheets/${sheetId};
   
   // Set up the API request headers
   const options = {
     method: 'GET',
     headers: {
-      'Authorization': `Bearer ${apiToken}`,
+      'Authorization': Bearer ${apiToken},
       'Content-Type': 'application/json'
     }
   };
