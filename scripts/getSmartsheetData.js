@@ -1,5 +1,5 @@
 function getSmartsheetData(sheetId) {
-  // Replace with your Smartsheet API access token
+  // Smartsheet API access token
   const apiToken = 'pvVprnMq89ruFLq3Sph2lvdBxifDbtm2o37bD';
   
   // Smartsheet API base URL
