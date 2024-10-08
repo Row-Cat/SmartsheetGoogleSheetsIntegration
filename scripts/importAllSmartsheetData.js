@@ -10,36 +10,23 @@ function importAllSmartsheetData() {
     { id: '3002886222309252', tabName: 'QNAP Swaps' },
     { id: '3670830105972612', tabName: 'QNAP Swaps - ARCHIVE' },
     { id: '6307488485140356', tabName: 'Logistics Smartsheet' },
-    { id: '5111055235633028', tabName: 'Logistics Smartsheet - ARCHIVE' }
+    { id: '5111055235633028', tabName: 'Logistics Smartsheet - ARCHIVE' },
     { id: '5491577354932100', tabName: '[Copy] Fulfillment Outbound Shipping Request Form' }
   ];
-
-  const spreadsheetId = '1JE1U59-z7Kks54G5kI4YH2pT_9v7aXDURPOzf4OHCiQ';
+  
+  const spreadsheetId = '1pQ6iaGhlbHwUsJXYloMlvIJcFtdU5fOCv73W8SwnNr4';
   const spreadsheet = SpreadsheetApp.openById(spreadsheetId);
-
+  
   smartsheets.forEach(smartsheet => {
-    try {
-      Logger.log(`Processing Smartsheet: ${smartsheet.tabName} (ID: ${smartsheet.id})`);
-      const data = getSmartsheetData(smartsheet.id);
-
-      if (data && data.length > 0 && data[0].length > 0) {
-        let sheet = spreadsheet.getSheetByName(smartsheet.tabName);
-
-        if (!sheet) {
-          sheet = spreadsheet.insertSheet(smartsheet.tabName);
-          Logger.log(`Created new sheet: ${smartsheet.tabName}`);
-        } else {
-          sheet.clear();
-          Logger.log(`Cleared existing sheet: ${smartsheet.tabName}`);
-        }
-
-        sheet.getRange(1, 1, data.length, data[0].length).setValues(data);
-        Logger.log(`Imported data into sheet: ${smartsheet.tabName}`);
-      } else {
-        Logger.log(`No data returned for Smartsheet ID: ${smartsheet.id}`);
-      }
-    } catch (error) {
-      Logger.log(`Error processing Smartsheet ID ${smartsheet.id}: ${error.message}`);
+    const data = getSmartsheetData(smartsheet.id);
+    let sheet = spreadsheet.getSheetByName(smartsheet.tabName);
+    
+    if (!sheet) {
+      sheet = spreadsheet.insertSheet(smartsheet.tabName);
+    } else {
+      sheet.clear();
     }
+    
+    sheet.getRange(1, 1, data.length, data[0].length).setValues(data);
   });
 }
